@@ -16,14 +16,14 @@ figlet "HACK THE PLANET!" | lolcat
 sleep 1
 echo "MEANS, IT'S ☕ 1337 ⚡ TIME, 369 ☯ " | lolcat
 sleep 1
-echo "[YOUR ARE USING bugbounty_scoper.sh] - (v1.0) CODED BY Chris 'SaintDruG' Abou-Chabké WITH ❤ FOR blackhatethicalhacking.com for Educational Purposes only!" | lolcat
+echo "[YOUR ARE USING ScopeHunter.sh] - (v1.0) CODED BY Chris 'SaintDruG' Abou-Chabké WITH ❤ FOR blackhatethicalhacking.com for Educational Purposes only!" | lolcat
 sleep 1
 #check if the user is connected to the internet
 tput bold;echo "CHECKING IF YOU ARE CONNECTED TO THE INTERNET!" | lolcat
 # Check connection
 wget -q --spider https://google.com
 if [ $? -ne 0 ];then
-    echo "++++ CONNECT TO THE INTERNET BEFORE RUNNING bugbounty_scoper.sh!" | lolcat
+    echo "++++ CONNECT TO THE INTERNET BEFORE RUNNING ScopeHunter.sh!" | lolcat
     exit 1
 fi
 tput bold;echo "++++ CONNECTION FOUND, LET'S GO!" | lolcat
@@ -75,6 +75,5 @@ function main_menu() {
     exit 0
   fi
 }
-
 main_menu
 #written by Chris "SaintDruG" Abou-Chabke for blackhatethicalhacking.com 2023
