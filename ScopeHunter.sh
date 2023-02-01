@@ -1,5 +1,5 @@
 #!/bin/bash
-curl --silent "https://raw.githubusercontent.com/blackhatethicalhacking/Subdomain_Bruteforce_bheh/main/ascii.sh" | lolcat
+curl --silent "https://raw.githubusercontent.com/blackhatethicalhacking/ScopeHunter/main/ScopeHunter_ascii.sh" | lolcat
 echo ""
 # Generate a random Sun Tzu quote for offensive security
 
