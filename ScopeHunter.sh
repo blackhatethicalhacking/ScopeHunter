@@ -1,5 +1,5 @@
 #!/bin/bash
-curl --silent "https://raw.githubusercontent.com/blackhatethicalhacking/ScopeHunter/main/ScopeHunter_ascii.sh" | lolcat
+curl --silent "https://raw.githubusercontent.com/blackhatethicalhacking/Subdomain_Bruteforce_bheh/main/ascii.sh" | lolcat
 echo ""
 # Generate a random Sun Tzu quote for offensive security
 
@@ -14,6 +14,8 @@ echo "Offensive security tip: $random_quote - Sun Tzu" | lolcat
 sleep 1
 echo "MEANS, IT'S ☕ 1337 ⚡ TIME, 369 ☯ " | lolcat
 sleep 1
+curl --silent "https://raw.githubusercontent.com/blackhatethicalhacking/ScopeHunter/main/ScopeHunter_ascii.sh" | lolcat
+echo ""
 echo "[YOUR ARE USING ScopeHunter.sh] - (v1.0) CODED BY Chris 'SaintDruG' Abou-Chabké WITH ❤ FOR blackhatethicalhacking.com for Educational Purposes only!" | lolcat
 sleep 1
 #check if the user is connected to the internet
