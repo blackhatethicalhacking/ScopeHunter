@@ -12,8 +12,6 @@ random_quote=${quotes[$RANDOM % ${#quotes[@]}]}
 # Print the quote
 echo "Offensive security tip: $random_quote - Sun Tzu" | lolcat
 sleep 1
-figlet "HACK THE PLANET!" | lolcat
-sleep 1
 echo "MEANS, IT'S ☕ 1337 ⚡ TIME, 369 ☯ " | lolcat
 sleep 1
 echo "[YOUR ARE USING ScopeHunter.sh] - (v1.0) CODED BY Chris 'SaintDruG' Abou-Chabké WITH ❤ FOR blackhatethicalhacking.com for Educational Purposes only!" | lolcat
