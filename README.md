@@ -55,7 +55,7 @@ With ScopeHunter.sh, you can focus on finding the targets you need for your bug 
 
 **Main Menu**
 
-![Screenshot 2023-02-01 at 2 40 39 AM](https://user-images.githubusercontent.com/13942386/215918098-bccab9a7-e481-429e-9bfb-a569477fa883.png)
+<img width="958" alt="Screenshot 2023-02-01 at 7 13 41 PM" src="https://user-images.githubusercontent.com/13942386/216113965-4609c07b-7c8b-45f4-9575-4addef0623e8.png">
 
 
 # Compatibility: 
