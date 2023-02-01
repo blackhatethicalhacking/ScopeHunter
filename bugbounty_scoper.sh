@@ -23,7 +23,7 @@ tput bold;echo "CHECKING IF YOU ARE CONNECTED TO THE INTERNET!" | lolcat
 # Check connection
 wget -q --spider https://google.com
 if [ $? -ne 0 ];then
-    echo "++++ CONNECT TO THE INTERNET BEFORE RUNNING XSSRocket.sh!" | lolcat
+    echo "++++ CONNECT TO THE INTERNET BEFORE RUNNING bugbounty_scoper.sh!" | lolcat
     exit 1
 fi
 tput bold;echo "++++ CONNECTION FOUND, LET'S GO!" | lolcat
