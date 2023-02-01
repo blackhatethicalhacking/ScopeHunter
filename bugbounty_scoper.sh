@@ -1,5 +1,4 @@
 #!/bin/bash
-
 curl --silent "https://raw.githubusercontent.com/blackhatethicalhacking/Subdomain_Bruteforce_bheh/main/ascii.sh" | lolcat
 echo ""
 # Generate a random Sun Tzu quote for offensive security
@@ -29,38 +28,53 @@ if [ $? -ne 0 ];then
 fi
 tput bold;echo "++++ CONNECTION FOUND, LET'S GO!" | lolcat
 
+function main_menu() {
+  # Define arrays for providers and data urls
+  providers=( "HackerOne" "BugCrowd" "Intigriti" "YesWeHack" )
+  data_urls=(
+    "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/hackerone_data.json"
+    "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/bugcrowd_data.json"
+    "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/intigriti_data.json"
+    "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/yeswehack_data.json"
+  )
 
-# Define arrays for providers and data urls
-providers=( "HackerOne" "BugCrowd" "Intigriti" "YesWeHack" )
-data_urls=(
-  "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/hackerone_data.json"
-  "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/bugcrowd_data.json"
-  "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/intigriti_data.json"
-  "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/yeswehack_data.json"
-)
+  # Show providers
+  echo "Available Providers:"
+  for provider in "${providers[@]}"; do
+    echo -e "\033[33m$provider\033[0m"
+  done
 
-# Show providers
-echo "Available providers:"
-for provider in "${providers[@]}"; do
-  echo -e "\033[33m$provider\033[0m"
-done
+  # Ask for target company name
+  echo -e "\033[32mEnter target company name: \033[0m"
+  read company
 
-# Ask for target company name
-echo -e "\033[32mEnter target company name: \033[0m"
-read company
+  # Loop through each provider and check for results
+  for i in "${!providers[@]}"; do
+    provider=${providers[i]}
+    data_url=${data_urls[i]}
 
-# Loop through each provider and check for results
-for i in "${!providers[@]}"; do
-  provider=${providers[i]}
-  data_url=${data_urls[i]}
+    filtered_targets=$(curl $data_url 2>/dev/null | grep -i $company | awk -F'"' '{print $4}')
 
-  filtered_targets=$(curl $data_url 2>/dev/null | grep -i $company | awk -F'"' '{print $4}')
+    if [[ ! -z $filtered_targets ]]; then
+      count=$(echo "$filtered_targets" | wc -l)
+      echo -e "\033[36mFound \033[31m$count\033[0m \033[36mtarget(s) in $provider. Results saved under \033[33m$company\033[0m"
 
-  if [[ ! -z $filtered_targets ]]; then
-    count=$(echo "$filtered_targets" | wc -l)
-    echo -e "\033[36mFound \033[31m$count\033[0m \033[36mtarget(s) in $provider. Results saved under \033[33m$company\033[0m"
+      mkdir -p "${company}"
+      echo "${filtered_targets}" > "${company}/${provider}_${company}.txt"
+    else
+      echo -e "\033[36m${company} not found in the database on \033[36m${provider}"
+    fi
+  done
+  # Ask user if they want to continue or exit
+  echo -e "\033[32mDo you want to search again? (yes/no) \033[0m"
+  read choice
 
-    mkdir -p "${company}"
-    echo "${filtered_targets}" > "${company}/${provider}_${company}.txt"
+  if [ "$choice" == "yes" ]; then
+    main_menu
+  else
+    exit 0
   fi
-done
+}
+
+main_menu
+#written by Chris "SaintDruG" Abou-Chabke for blackhatethicalhacking.com 2023
