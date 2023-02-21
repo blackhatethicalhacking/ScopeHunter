@@ -12,6 +12,9 @@
 **Find Your Next Target with ScopeHunter!**
 
 ScopeHunter is written by Chris "SaintDruG" Abou-Chabke from Black Hat Ethical Hacking and is designed for Red Teams and Bug Bounty Hunters!
+
+Shout out and thanks to <a href="https://github.com/shadowdevnotreal"> ShadowDevnotreal
+
 </p>
 
 # Description
