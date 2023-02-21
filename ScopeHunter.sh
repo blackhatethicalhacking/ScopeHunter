@@ -27,6 +27,17 @@ if [ $? -ne 0 ];then
     exit 1
 fi
 tput bold;echo "++++ CONNECTION FOUND, LET'S GO!" | lolcat
+
+function main_menu() {
+  # Define arrays for providers and data urls
+  providers=( "HackerOne" "BugCrowd" "Intigriti" "YesWeHack" )
+  data_urls=(
+    "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/hackerone_data.json"
+    "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/bugcrowd_data.json"
+    "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/intigriti_data.json"
+    "https://raw.githubusercontent.com/arkadiyt/bounty-targets-data/main/data/yeswehack_data.json"
+  )
+
   # Show providers
   echo "Available Providers:"
   for provider in "${providers[@]}"; do
