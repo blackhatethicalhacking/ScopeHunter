@@ -65,15 +65,19 @@ function main_menu() {
       echo -e "\033[36m${company} not found in the database on \033[36m${provider}"
     fi
   done
-  # Ask user if they want to continue or exit
-  echo -e "\033[32mDo you want to search again? (yes/no) \033[0m"
-  read choice
+# Ask user if they want to continue or exit
+echo -e "\033[32mDo you want to search again? (yes/no) \033[0m"
+read choice
 
-  if [ "$choice" == "yes" ]; then
-    main_menu
-  else
-    exit 0
-  fi
+if [[ "$choice" =~ ^[Yy][EeSs]*$ ]]; then
+  main_menu
+elif [[ "$choice" =~ ^[Nn][Oo]*$ ]]; then
+  exit 0
+else
+  echo -e "\033[31mInvalid input. Please enter yes or no.\033[0m"
+  continue_or_exit
+ fi
 }
 main_menu
+
 #written by Chris "SaintDruG" Abou-Chabke for blackhatethicalhacking.com 2023
