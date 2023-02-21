@@ -9,6 +9,65 @@ quotes=("The supreme art of war is to subdue the enemy without fighting." "All w
 # Get a random quote from the array
 random_quote=${quotes[$RANDOM % ${#quotes[@]}]}
 
+# Check if lolcat, fortune-mod, figlet and curl are installed
+if ! command -v lolcat > /dev/null; then
+  echo "lolcat not found, installing..."
+  if command -v dnf > /dev/null; then
+    sudo dnf install -y lolcat
+  elif command -v yum > /dev/null; then
+    sudo yum install -y lolcat
+  elif command -v apt-get > /dev/null; then
+    sudo apt-get install -y lolcat
+  else
+    echo "Error: package manager not found, please install lolcat manually"
+    exit 1
+  fi
+fi
+
+if ! command -v fortune > /dev/null; then
+  echo "fortune-mod not found, installing..."
+  if command -v dnf > /dev/null; then
+    sudo dnf install -y fortune-mod
+  elif command -v yum > /dev/null; then
+    sudo yum install -y fortune-mod
+  elif command -v apt-get > /dev/null; then
+    sudo apt-get install -y fortune-mod
+  else
+    echo "Error: package manager not found, please install fortune-mod manually"
+    exit 1
+  fi
+fi
+
+if ! command -v figlet > /dev/null; then
+  echo "figlet not found, installing..."
+  if command -v dnf > /dev/null; then
+    sudo dnf install -y figlet
+  elif command -v yum > /dev/null; then
+    sudo yum install -y figlet
+  elif command -v apt-get > /dev/null; then
+    sudo apt-get install -y figlet
+  else
+    echo "Error: package manager not found, please install figlet manually"
+    exit 1
+  fi
+fi
+
+if ! command -v curl > /dev/null; then
+  echo "curl not found, installing..."
+  if command -v dnf > /dev/null; then
+    sudo dnf install -y curl
+  elif command -v yum > /dev/null; then
+    sudo yum install -y curl
+  elif command -v apt-get > /dev/null; then
+    sudo apt-get install -y curl
+  else
+    echo "Error: package manager not found, please install curl manually"
+    exit 1
+  fi
+fi
+
+echo "All dependencies installed successfully"
+
 # Print the quote
 echo "Offensive security tip: $random_quote - Sun Tzu" | lolcat
 sleep 1
@@ -65,15 +124,19 @@ function main_menu() {
       echo -e "\033[36m${company} not found in the database on \033[36m${provider}"
     fi
   done
-  # Ask user if they want to continue or exit
-  echo -e "\033[32mDo you want to search again? (yes/no) \033[0m"
-  read choice
+# Ask user if they want to continue or exit
+echo -e "\033[32mDo you want to search again? (yes/no) \033[0m"
+read choice
 
-  if [ "$choice" == "yes" ]; then
-    main_menu
-  else
-    exit 0
-  fi
+if [[ "$choice" =~ ^[Yy][EeSs]*$ ]]; then
+  main_menu
+elif [[ "$choice" =~ ^[Nn][Oo]*$ ]]; then
+  exit 0
+else
+  echo -e "\033[31mInvalid input. Please enter yes or no.\033[0m"
+  continue_or_exit
+ fi
 }
 main_menu
+
 #written by Chris "SaintDruG" Abou-Chabke for blackhatethicalhacking.com 2023
