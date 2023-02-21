@@ -37,6 +37,11 @@ This tool uses a simple and intuitive flow, making it easy to understand how it 
 • Intuitive Flow: This tool uses a simple and intuitive flow, making it easy to understand how it works.
 
 With ScopeHunter.sh, you can focus on finding the targets you need for your bug bounty programs without having to worry about outdated or incorrect data. The program is an essential tool for anyone looking to take their bug bounty hunting to the next level.
+  
+Hackers be like:
+
+  ![giphy-4](https://user-images.githubusercontent.com/13942386/220473359-5d4f152d-a6f9-4be0-9294-1d49c84eec12.gif)
+
 
 # Requirements:
 
